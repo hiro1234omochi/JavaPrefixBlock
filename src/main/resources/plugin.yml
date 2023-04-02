@@ -1,0 +1,4 @@
+name: JavaPrefixBlock
+version: '${project.version}'
+main: dev.omochi.javaprefixblock.JavaPrefixBlock
+api-version: 1.18
