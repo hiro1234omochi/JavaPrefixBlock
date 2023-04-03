@@ -1,10 +1,13 @@
 package dev.omochi.javaprefixblock;
 
 import net.kyori.adventure.text.Component;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.geysermc.floodgate.api.FloodgateApi;
 
@@ -35,11 +38,10 @@ public final class JavaPrefixBlock extends JavaPlugin implements Listener{
         // Plugin shutdown logic
     }
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e) {
-
+    public void onPlayerJoin(PlayerLoginEvent e) {
         if(e.getPlayer().getName().startsWith(BlockPrefix)){
             if(!floodgateApi.isFloodgatePlayer(e.getPlayer().getUniqueId())){
-                e.getPlayer().kickPlayer("Java版で"+BlockPrefix+"から始まるプレイヤーは重複防止のためこのサーバーに参加できません");
+                e.disallow(PlayerLoginEvent.Result.KICK_OTHER,"Java版で"+BlockPrefix+"から始まるプレイヤーは重複防止のためこのサーバーに参加できません");
             }
         }
 
