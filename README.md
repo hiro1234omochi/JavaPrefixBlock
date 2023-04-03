@@ -1,2 +1,2 @@
 # JavaPrefixBlock
-##　floodgateを使用しているときに、java版とprefixがかぶらないようにするプラグインです。
+## floodgateを使用しているときに、java版とprefixがかぶらないようにするプラグインです。
